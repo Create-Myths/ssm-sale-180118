@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.sale.dao.SalesDAO">
+
+    <insert id="addSales" parameterType="String">
+        insert into SALES(NAME) VALUES (#{name})
+    </insert>
+    
+    <resultMap id="salesMap" type="Sales">
+        <id property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+    </resultMap>
+
+    <select id="getSalesList" resultMap="salesMap">
+        select ID,NAME FROM SALES
+    </select>
+
+</mapper>
